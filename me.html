@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+          background: linear-gradient(to right, #16A085, #F4D03F);
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  width: 100%;
+  z-index: 2;
+}
+.top {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  background: #16A085;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-bottom: 10px;
+}
+.top h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+}
+.top:hover {
+  background: #999;
+}
+.top h2:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #000;
+  bottom: -10px;
+  left: 0;
+  transition: width 0.5s ease-in-out;
+}
+.top h2:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #000;
+  top: -10px;
+  right: 0;
+  transition: width 0.5s ease-in-out;
+}
+.top:hover h2::after,
+.top:hover h2::before {
+  width: 100%;
+}
+.top p {
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+}
+.med {
+    margin-bottom: 10px;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.col {
+  background: #16A085;
+  border-radius: 6px;
+  padding: 15px;
+  line-height: 1.6;
+}
+.col:hover {
+  background-color: #999;
+}
+.col i {
+  margin: 0;
+  margin-right: 5px;
+  padding: 0;
+  color: darkgreen;
+  font-size: 20px;
+}
+.col h3 {
+  display: inline;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.col p {
+  margin: 10px 0;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  flex-flow: column; 
+  justify-content: center;
+  background: #16A085;
+  border-radius: 6px;
+}
+.footer hr {
+  background-color: #555;
+  width: 15%;
+  height: 1px;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.footer:hover {
+    background-color: #999;
+}
+.footer p {
+    font-size: 16px;
+    color: black;
+}
+.Gate {
+  /* display: none; */
+  padding: 0;
+  margin: 0;
+}
+.door-1 {
+  position: absolute;
+  background-color: #555;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  right: 50%;
+}
+.door-2 {
+  position: absolute;
+  background-color: green;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  left: 50%;
+}
+/* .tooth {
+  border: none;
+  height: 25%;
+  margin: 0 50px;
+  background: linear-gradient(135deg, green 20px, #555 0) 0 5px, 
+  linear-gradient(135deg, green 20px, #555 0) 0 5px;
+  background-color: rgba(0, 0, 0, 0);
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  background-size: 20px 40px;
+  z-index: 100;
+  position: relative;
+  transform: rotate(90deg);
+} */
+
+.lock {
+  position: absolute;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+  bottom: 50%;
+  top: 50%;
+  right: 50%;
+  left: 50%;
+}
+.lane {
+  display: flex;
+  flex-flow: column;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: -250px;
+}
+.lane i {
+  border: 1px solid transparent;
+  margin-top: 10px;
+  box-shadow: 5px 10px #555;
+  margin-left: 0;
+  margin-right: 30px;
+}
+.lane i:nth-child(4) {
+box-shadow: -5px 10px #555,5px 10px #555;
+}
+.lane i:first-child{ animation:  one 3s forwards;}
+.lane i:nth-child(2) {  animation:  two 3s forwards;}
+.lane i:nth-child(3) {  animation:  three 3s forwards;}
+.lane i:nth-child(4) {  animation:  four 3s forwards;}
+@keyframes one {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(270deg);}
+}
+@keyframes two {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(265deg);}
+}
+@keyframes three {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(260deg);}
+}
+@keyframes four {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(255deg);}
+}
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+        <h2>Mostafa Abdel Nasser Mahmoud</h2>
+        <p>
+          Junior Accountant <br>
+          August 1,1999 <br>
+          Elminya-Egypt <br>
+          01098260247 / 01122966187 <br>
+          Mostafaabdelnaser454@gmail.com
+        </p>
+      </div>
+      <div class="med">
+        <div class="row">
+          <div class="col">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+            <h3>Education Background</h3>
+            <p>
+              El Monofia university <br>
+              Graduate from faculty of commerce,
+              English section <br>
+              Accounting department <br>
+              <b>Graduated: </b>2022
+            </p>
+            
+          </div>
+          <div class="col">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+            <h3>Experience and Internship</h3>
+            <p>
+              Trainee in bank misr : summer 2022 <br>
+              worked as a moderate for 1 year
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+          <ul>
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-brands fa-twitter"></i></li>
+            <li><i class="fa-brands fa-linkedin"></i></li>
+            <li><i class="fa-brands fa-reddit"></i></li>
+            <li><i class="fa-brands fa-whatsapp"></i></li>
+          </ul>
+          <hr>
+          <p>
+            &copy; All rights reserved
+          </p>
+      </div>
+    </div>
+    <div class="Gate" id="gate">
+      <div class="door-1" id="door-one">
+      </div>
+      <div class="tooth"></div>
+      <div class="door-2" id="door-two">
+      </div>
+      <div class="lock">
+        <div class="lane">
+          <i class="fa-solid fa-gear  fa-7x one" style="display: flex;"></i>       
+          <i class="fa-solid fa-gear  fa-7x two" style="display: flex;"></i>          
+          <i class="fa-solid fa-gear  fa-7x three" style="display: flex;"></i>          
+          <i class="fa-solid fa-gear  fa-7x three" style="display: flex;"></i>          
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#door-one").animate({right: "1500px"}, 2000);
+        $("#door-two").animate({left: "1500px"}, 2000);
+        $(".lock").fadeToggle(1000);
+     });
+
+
+      
+      
+    </script>
+</body>
+</html>
